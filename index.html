@@ -13,7 +13,7 @@
     <style>
         body {
             font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, #fce7f3 0%, #fae8ff 50%, #f3e8ff 100%);
+            background: linear-gradient(135deg, #4c0519 0%, #831843 50%, #581c87 100%);
             overflow-x: hidden;
         }
         .cursive-title {
@@ -26,34 +26,32 @@
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-10px) rotate(5deg); }
         }
-        /* Style for the elusive No button */
         #no-btn {
             transition: all 0.15s ease-out;
             position: relative;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-4 relative">
+<body class="min-h-screen flex flex-col items-center justify-center p-4 relative text-gray-100">
 
-    <!-- Background Video Landing Layer -->
+    <!-- Romantic Background Video Layer -->
     <div class="fixed inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-25">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-20">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-romantic-sunset-with-silhouettes-of-people-in-the-distance-42353-large.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="absolute inset-0 bg-gradient-to-br from-pink-100/70 via-purple-100/70 to-rose-100/70 backdrop-blur-[2px]"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-rose-950/80 via-pink-900/80 to-purple-950/80 backdrop-blur-[3px]"></div>
     </div>
 
-    <!-- Background Music Audio Element (Direct HTML5 Audio for reliable playback) -->
+    <!-- Background Music Audio Element (Single Play - No Loop) -->
     <audio id="bg-audio" preload="auto">
-        <!-- Using a reliable royalty-free romantic background tune stream -->
         <source src="Wilbert Ross - Dulo Ng Pahina (Official Lyric Video).mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Audio Permission Modal Prompt (Ensures sound works across all modern browsers) -->
-    <div id="audio-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl border border-pink-200 animate-bounce">
+    <!-- Audio Permission Modal Prompt -->
+    <div id="audio-modal" class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="bg-white text-gray-800 rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl border border-pink-300 animate-bounce">
             <div class="text-5xl mb-3">🎵💖</div>
             <h3 class="cursive-title text-2xl text-pink-600 mb-2">Enable Music?</h3>
             <p class="text-gray-600 text-sm mb-5">Click below to start the romantic background music and open your invitation!</p>
@@ -64,7 +62,7 @@
     </div>
 
     <!-- Floating Audio Toggle Button -->
-    <button id="audio-toggle" onclick="toggleAudio()" class="absolute top-4 right-4 bg-white/85 hover:bg-white text-pink-600 font-bold px-4 py-2 rounded-full shadow-md backdrop-blur-sm border border-pink-200 transition-all z-30 flex items-center gap-2 text-sm cursor-pointer">
+    <button id="audio-toggle" onclick="toggleAudio()" class="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white font-bold px-4 py-2 rounded-full shadow-md backdrop-blur-md border border-white/30 transition-all z-30 flex items-center gap-2 text-sm cursor-pointer">
         <span id="audio-icon">🔇</span> <span id="audio-text">Play Music 🎵</span>
     </button>
 
@@ -75,127 +73,134 @@
     <div class="absolute bottom-10 right-10 text-4xl floating-heart opacity-70 select-none" style="animation-delay: 0.5s;">💘</div>
 
     <!-- Main Card Container -->
-    <main id="card-container" class="bg-white/80 backdrop-blur-md border border-pink-200 shadow-2xl rounded-3xl p-8 max-w-md w-full text-center relative z-10 transition-all duration-500">
+    <main id="card-container" class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 max-w-md w-full text-center relative z-10 transition-all duration-500">
         
-        <!-- Cute Illustration / Emoji Header -->
         <div class="mb-6">
-            <div class="w-28 h-28 mx-auto bg-pink-100 rounded-full flex items-center justify-center shadow-inner mb-4 border-2 border-pink-300">
-                <span id="mood-emoji" class="text-6xl select-none transition-transform duration-300">🐱💕</span>
+            <div class="grid grid-cols-2 gap-3 max-w-xs mx-auto mb-4">
+                <div class="bg-white/20 p-2 rounded-2xl shadow-md border border-white/20 transform -rotate-3 hover:rotate-0 transition duration-300">
+                    <img src="photo1.jpg" alt="Our Memory 1" class="w-full h-28 object-cover rounded-xl" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop'">
+                    <p class="text-[10px] text-pink-200 font-medium mt-1">Special Moment ✨</p>
+                </div>
+                <div class="bg-white/20 p-2 rounded-2xl shadow-md border border-white/20 transform rotate-3 hover:rotate-0 transition duration-300">
+                    <img src="photo2.jpg" alt="Our Memory 2" class="w-full h-28 object-cover rounded-xl" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=400&auto=format&fit=crop'">
+                    <p class="text-[10px] text-pink-200 font-medium mt-1">Can't Wait 🥰</p>
+                </div>
             </div>
-            <span class="bg-pink-100 text-pink-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Urgent Question</span>
+            <span class="bg-pink-500/30 text-pink-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-pink-400/30">Urgent Question</span>
         </div>
 
-        <!-- Question Header -->
-        <h1 class="cursive-title text-3xl md:text-4xl text-pink-600 mb-3">Will you go on a date with me?</h1>
-        <p id="subtitle-text" class="text-gray-600 text-sm md:text-base mb-8">I promise good food, terrible jokes, and great company! 🥰</p>
+        <h1 class="cursive-title text-3xl md:text-4xl text-pink-200 mb-3 drop-shadow">Will you go on a date with me?</h1>
+        <p id="subtitle-text" class="text-pink-100/80 text-sm md:text-base mb-8">I promise good food, terrible jokes, and great company! 🥰</p>
 
-        <!-- Interactive Buttons Container -->
         <div id="button-area" class="flex items-center justify-center gap-4 relative min-h-[90px]">
-            <!-- YES Button -->
             <button id="yes-btn" onclick="handleYesClick()" class="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-lg px-8 py-3 rounded-full shadow-lg transform hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer z-20">
                 Yes! 💖
             </button>
 
-            <!-- NO Button (The elusive escape artist) -->
-            <button id="no-btn" onmouseover="teleportButton()" onclick="teleportButton()" ontouchstart="teleportButton()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold text-lg px-8 py-3 rounded-full shadow-md cursor-pointer select-none">
+            <button id="no-btn" onmouseover="teleportButton()" onclick="teleportButton()" ontouchstart="teleportButton()" class="bg-white/20 hover:bg-white/30 text-white font-bold text-lg px-8 py-3 rounded-full shadow-md cursor-pointer select-none border border-white/20">
                 No 🙈
             </button>
         </div>
     </main>
 
-    <!-- Destination & Date Selection Screen (Page 2) -->
-    <div id="destination-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
-        <div class="bg-white/90 backdrop-blur-md border border-pink-200 shadow-2xl rounded-3xl p-8 relative overflow-hidden">
-            <div class="text-6xl mb-3 animate-bounce">✨📅✨</div>
-            <h2 class="cursive-title text-3xl text-pink-600 mb-2">Yay! Best Decision Ever!</h2>
-            <p class="text-gray-600 text-sm mb-6">Now let's pick when and where our date will happen!</p>
+    <!-- Page 2: Date Selection Screen -->
+    <main id="date-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
+        <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
+            <div class="text-6xl mb-3 animate-bounce">📅✨</div>
+            <h2 class="cursive-title text-3xl text-pink-200 mb-2">Yay! Best Decision Ever!</h2>
+            <p class="text-pink-100/80 text-sm mb-6">First, let's pick the exact date for our special day!</p>
 
-            <!-- Date Picker (Restricted to this year) -->
-            <div class="mb-4 text-left">
-                <label class="block text-xs font-bold text-pink-600 uppercase mb-1">Pick a Date (This Year)</label>
-                <input type="date" id="date-picker" class="w-full bg-pink-50 border border-pink-200 rounded-xl px-4 py-2.5 text-gray-700 font-medium focus:outline-none focus:ring-2 focus:ring-pink-400">
+            <div class="mb-6 text-left">
+                <label class="block text-xs font-bold text-pink-300 uppercase mb-1">Pick a Date (This Year)</label>
+                <input type="date" id="date-picker" class="w-full bg-black/30 border border-pink-300/30 rounded-xl px-4 py-2.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-pink-400">
             </div>
 
-            <!-- Destination Area Selection -->
+            <button onclick="goToPlaceSelection()" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer">
+                Next: Choose Destination 🌴 ->
+            </button>
+        </div>
+    </main>
+
+    <!-- Page 3: Place Selection Screen -->
+    <main id="place-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
+        <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
+            <div class="text-6xl mb-3 animate-bounce">🌴✨</div>
+            <h2 class="cursive-title text-3xl text-pink-200 mb-2">Where to?</h2>
+            <p class="text-pink-100/80 text-sm mb-6">Now choose our romantic destination!</p>
+
             <div class="mb-6 text-left">
-                <label class="block text-xs font-bold text-pink-600 uppercase mb-1">Choose the Vibe / Destination (Top 50 PH)</label>
-                <select id="destination-select" class="w-full bg-pink-50 border border-pink-200 rounded-xl px-4 py-2.5 text-gray-700 font-medium focus:outline-none focus:ring-2 focus:ring-pink-400 max-h-48 overflow-y-auto">
-                    <option value="Boracay Island, Aklan 🏖️">1. Boracay Island, Aklan 🏖️</option>
-                    <option value="El Nido, Palawan 🏝️">2. El Nido, Palawan 🏝️</option>
-                    <option value="Coron, Palawan 🐠">3. Coron, Palawan 🐠</option>
-                    <option value="Chocolate Hills, Bohol 🍫">4. Chocolate Hills, Bohol 🍫</option>
-                    <option value="Siargao Island, Surigao del Norte 🏄">5. Siargao Island, Surigao del Norte 🏄</option>
-                    <option value="Banaue Rice Terraces, Ifugao 🌾">6. Banaue Rice Terraces, Ifugao 🌾</option>
-                    <option value="Vigan Historic Town, Ilocos Sur 🐎">7. Vigan Historic Town, Ilocos Sur 🐎</option>
-                    <option value="Mayon Volcano, Albay 🌋">8. Mayon Volcano, Albay 🌋</option>
-                    <option value="Puerto Princesa Underground River, Palawan 🚣">9. Puerto Princesa Underground River, Palawan 🚣</option>
-                    <option value="Batanes Islands, Batanes ⛰️">10. Batanes Islands, Batanes ⛰️</option>
-                    <option value="Cebu Oslob Whale Sharks, Cebu 🐋">11. Oslob Whale Shark Watching, Cebu 🐋</option>
-                    <option value="Taal Volcano & Lake, Batangas 🌊">12. Taal Volcano & Lake, Batangas 🌊</option>
-                    <option value="Panglao Island, Bohol 🐚">13. Panglao Island, Bohol 🐚</option>
-                    <option value="Hundred Islands National Park, Pangasinan 🏝️">14. Hundred Islands National Park, Pangasinan 🏝️</option>
-                    <option value="Sagada Hanging Coffins, Mountain Province 🌲">15. Sagada Hanging Coffins, Mountain Province 🌲</option>
-                    <option value="Intramuros, Manila 🏛️">16. Intramuros, Manila 🏛️</option>
-                    <option value="Camiguin Island 🌋">17. Camiguin Island ('Bornгід') 🌋</option>
-                    <option value="Davao Eagle Center & Eden Nature Park 🦅">18. Eden Nature Park, Davao 🌳</option>
-                    <option value="Mount Apo, Davao 🏔️">19. Mount Apo, Davao 🏔️</option>
-                    <option value="Subic Bay, Zambales ⛵">20. Subic Bay, Zambales ⛵</option>
-                    <option value="Tagaytay Ridge, Cavite ☕">21. Tagaytay Ridge, Cavite ☕</option>
-                    <option value="Anawangin Cove, Zambales ⛺">22. Anawangin Cove, Zambales ⛺</option>
-                    <option value="Malapascua Island, Cebu 🦈">23. Malapascua Island, Cebu 🦈</option>
-                    <option value="Bantayan Island, Cebu 🌴">24. Bantayan Island, Cebu 🌴</option>
-                    <option value="Siquijor Island 🔮">25. Siquijor Island 🔮</option>
-                    <option value="Apo Island, Negros Oriental 🐢">26. Apo Island, Negros Oriental 🐢</option>
-                    <option value="Lake Sebu, South Cotabato 🌊">27. Lake Sebu, South Cotabato 🌊</option>
-                    <option value="Hinatuan Enchanted River, Surigao del Sur 💧">28. Hinatuan Enchanted River, Surigao del Sur 💧</option>
-                    <option value="Tinuy-an Falls, Surigao del Sur 🌊">29. Tinuy-an Falls, Surigao del Sur 🌊</option>
-                    <option value="Pagsanjan Falls, Laguna 🛶">30. Pagsanjan Falls, Laguna 🛶</option>
-                    <option value="Dinagat Islands 🏝️">31. Dinagat Islands 🏝️</option>
-                    <option value="Guimaras Island (Mango Orchards) 🥭">32. Guimaras Island 🥭</option>
-                    <option value="Mount Pulag, Benguet ☁️">33. Mount Pulag, Benguet (Sea of Clouds) ☁️</option>
-                    <option value="Kawasan Falls, Cebu 💧">34. Kawasan Falls, Cebu 💧</option>
-                    <option value="Malamawi White Beach, Basilan 🏖️">35. Malamawi White Beach, Basilan 🏖️</option>
-                    <option value="Caramoan Islands, Camarines Sur 🏝️">36. Caramoan Islands, Camarines Sur 🏝️</option>
-                    <option value="Calaguas Islands, Camarines Norte 🏖️">37. Calaguas Islands, Camarines Norte 🏖️</option>
-                    <option value="Cagayan de Oro White Water Rafting 🚣">38. Cagayan de Oro River Rafting 🚣</option>
-                    <option value="San Juanico Bridge, Leyte/Samar 🌉">39. San Juanico Bridge, Leyte/Samar 🌉</option>
-                    <option value="Manjuyod Sandbar, Negros Oriental 🏝️">40. Manjuyod Sandbar, Negros Oriental 🏝️</option>
-                    <option value="Paseo del Mar & Santa Cruz Island, Zamboanga 🌸">41. Pink Sand Beach, Zamboanga 🌸</option>
-                    <option value="Dahilayan Adventure Park, Bukidnon 🌲">42. Dahilayan Adventure Park, Bukidnon 🌲</option>
-                    <option value="Bacolod Ruins (The Ruins), Negros Occidental 🏰">43. The Ruins, Bacolod 🏰</option>
-                    <option value="Iloilo Esplanade & Heritage Houses, Iloilo 🌇">44. Iloilo Esplanade, Iloilo 🌇</option>
-                    <option value="Corregidor Island, Cavite/Bataan 🪖">45. Corregidor Island, Cavite/Bataan 🪖</option>
-                    <option value="Paoay Dunes & Church, Ilocos Norte 🏜️">46. Paoay Sand Dunes, Ilocos Norte 🏜️</option>
-                    <option value="Maria Cristina Falls, Iligan City 🌊">47. Maria Cristina Falls, Iligan City 🌊</option>
-                    <option value="Mount Pinatubo Crater Lake, Zambales 🌋">48. Mount Pinatubo Crater Lake, Zambales 🌋</option>
-                    <option value="Capones Island Lighthouse, Zambales 🗼">49. Capones Island Lighthouse, Zambales 🗼</option>
-                    <option value="Baguio Botanical Garden & Mines View, Baguio 🌲">50. Mines View Park, Baguio City 🌲</option>
+                <label class="block text-xs font-bold text-pink-300 uppercase mb-1">Choose a Romantic Destination (Top 10)</label>
+                <select id="destination-select" class="w-full bg-black/30 border border-pink-300/30 rounded-xl px-4 py-2.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    <option value="" class="bg-gray-900 text-gray-300">-- Select a Place --</option>
+                    <option value="Boracay Beach, Aklan" class="bg-gray-900 text-white">1. Boracay Beach, Aklan 🏖️</option>
+                    <option value="El Nido, Palawan" class="bg-gray-900 text-white">2. El Nido, Palawan 🏝️</option>
+                    <option value="Chocolate Hills, Bohol" class="bg-gray-900 text-white">3. Chocolate Hills, Bohol 🍫</option>
+                    <option value="Siargao Island" class="bg-gray-900 text-white">4. Siargao Island, Surigao 🏄</option>
+                    <option value="Batanes Islands" class="bg-gray-900 text-white">5. Batanes Islands ⛰️</option>
+                    <option value="Vigan Heritage Village" class="bg-gray-900 text-white">6. Vigan Heritage Village, Ilocos Sur 🐎</option>
+                    <option value="Tagaytay Ridge" class="bg-gray-900 text-white">7. Tagaytay Ridge, Cavite ☕</option>
+                    <option value="Lake Sebu" class="bg-gray-900 text-white">8. Lake Sebu, South Cotabato 🌊</option>
+                    <option value="Enchanted River, Surigao" class="bg-gray-900 text-white">9. Enchanted River, Surigao del Sur 💧</option>
+                    <option value="Baguio Botanical Garden" class="bg-gray-900 text-white">10. Baguio Botanical Garden 🌲</option>
                 </select>
             </div>
 
-            <button onclick="confirmDateDetails()" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer">
-                Lock In The Date! 💌
-            </button>
+            <div class="flex gap-3">
+                <button onclick="goBackToDate()" class="w-1/3 bg-white/20 hover:bg-white/30 text-white font-bold py-3 rounded-full shadow-md transition-all cursor-pointer text-xs">
+                    Back 🔙
+                </button>
+                <button onclick="previewDestination()" class="w-2/3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer text-sm">
+                    Preview Details 💖
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Page 4: Preview & Confirmation Screen -->
+    <div id="preview-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
+        <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100 text-left">
+            <div class="text-center mb-4">
+                <span class="text-5xl">💌✨</span>
+                <h2 class="cursive-title text-3xl text-pink-200 mt-2">Date Preview</h2>
+            </div>
+            
+            <div class="bg-black/30 p-4 rounded-2xl border border-pink-300/20 space-y-3 mb-6 text-sm">
+                <p><strong>📅 Chosen Date:</strong> <span id="preview-date" class="text-pink-300"></span></p>
+                <p><strong>🌴 Destination:</strong> <span id="preview-dest" class="text-pink-300"></span></p>
+                <div class="border-t border-pink-300/20 pt-2 mt-2">
+                    <p class="font-bold text-pink-200 mb-1">✨ What to Expect:</p>
+                    <p id="preview-expectation" class="text-pink-100/90 text-xs italic leading-relaxed"></p>
+                </div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="goBackToPlace()" class="w-1/3 bg-white/20 hover:bg-white/30 text-white font-bold py-3 rounded-full shadow-md transition-all cursor-pointer text-xs">
+                    Change 🔙
+                </button>
+                <button onclick="confirmDateDetails()" class="w-2/3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer text-sm">
+                    Confirm & Lock In! 💍
+                </button>
+            </div>
         </div>
     </div>
 
     <!-- Final Celebration Screen -->
     <div id="celebration-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
-        <div class="bg-white/90 backdrop-blur-md border border-pink-200 shadow-2xl rounded-3xl p-8 relative overflow-hidden">
+        <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
             <div class="text-7xl mb-4 animate-bounce">🎉🥳🍾</div>
-            <h2 class="cursive-title text-4xl text-pink-600 mb-3">All Set!</h2>
-            <p id="final-summary" class="text-gray-700 text-base mb-6">Can't wait to hang out with you! ✨</p>
-            <div class="bg-pink-50 p-4 rounded-2xl border border-pink-200 text-pink-700 font-semibold text-sm mb-6">
+            <h2 class="cursive-title text-4xl text-pink-200 mb-3">All Set!</h2>
+            <p id="final-summary" class="text-pink-100/90 text-sm mb-6 leading-relaxed">Can't wait to hang out with you! ✨</p>
+            <div class="bg-pink-500/20 p-4 rounded-2xl border border-pink-300/30 text-pink-200 font-semibold text-sm mb-6">
                 Status: Date Confirmed! 📅💕
             </div>
-            <button onclick="resetApp()" class="text-xs text-pink-400 hover:text-pink-600 underline cursor-pointer">
+            <button onclick="resetApp()" class="text-xs text-pink-300 hover:text-pink-200 underline cursor-pointer">
                 Start Over (Just for fun)
             </button>
         </div>
     </div>
 
     <!-- Footer Credit -->
-    <footer class="absolute bottom-3 text-xs text-pink-400/80 font-medium">
+    <footer class="absolute bottom-3 text-xs text-pink-300/70 font-medium z-10">
         Made with extra love & sweetness ✨
     </footer>
 
@@ -216,13 +221,27 @@
             "You only have one choice! 🌸"
         ];
 
-        const emojis = ["🐱💕", "🥺👉👈", "🧸✨", "💌🥰", "🙈💖"];
+        const placeExpectations = {
+            "Boracay Beach, Aklan": "Expect breathtaking powder-white sand, gorgeous sunset walks hand-in-hand along the shoreline, vibrant nightlife, and a wonderful tropical beach vibe!",
+            "El Nido, Palawan": "Expect stunning limestone cliffs, crystal-clear turquoise lagoons, secret hidden beaches, and unforgettable island-hopping boat adventures.",
+            "Chocolate Hills, Bohol": "Expect panoramic views of rolling symmetrical hills, cute encounters with tarsiers, a peaceful countryside vibe, and a relaxing river cruise date.",
+            "Siargao Island": "Expect a laid-back island atmosphere, stunning palm-fringed roads, beautiful rock pools, gorgeous surf views, and chill sunset sessions.",
+            "Batanes Islands": "Expect dramatic rolling green hills meeting the blue ocean, historic stone houses, cool breezy weather, and breathtaking cliffside scenery.",
+            "Vigan Heritage Village": "Expect romantic horse-drawn carriage (calesa) rides down cobblestone streets, old-world Spanish colonial architecture, and delicious local empanadas.",
+            "Tagaytay Ridge": "Expect cool mountain breeze, cozy coffee dates overlooking the majestic Taal Volcano lake, and romantic misty weather views.",
+            "Lake Sebu": "Expect a serene mountain escape with gorgeous waterfall views, peaceful lake waters, rich indigenous culture, and a cool morning mist.",
+            "Enchanted River, Surigao": "Expect magical crystal-clear blue river waters hidden in lush jungle greenery, swimming side-by-side, and peaceful nature ambiance.",
+            "Baguio Botanical Garden": "Expect romantic pine-scented cool weather, beautiful colorful flower gardens, artistic sculptures, and cozy walks hand-in-hand."
+        };
+
+        bgAudio.addEventListener('ended', () => {
+            isPlaying = false;
+            document.getElementById('audio-icon').textContent = "🔇";
+            document.getElementById('audio-text').textContent = "Play Music 🎵";
+        });
 
         function startExperience() {
-            // Hide modal
             document.getElementById('audio-modal').classList.add('hidden');
-            
-            // Play HTML5 audio
             bgAudio.play().then(() => {
                 isPlaying = true;
                 document.getElementById('audio-icon').textContent = "🔊";
@@ -252,7 +271,6 @@
             }
         }
 
-        // Initialize date picker limits to current year only
         window.addEventListener('DOMContentLoaded', () => {
             const today = new Date();
             const year = today.getFullYear();
@@ -268,40 +286,24 @@
         function teleportButton() {
             const noBtn = document.getElementById('no-btn');
             const subtitle = document.getElementById('subtitle-text');
-            const emojiSpan = document.getElementById('mood-emoji');
             
-            // Increment dodge count
             dodgeCount++;
-
-            // Random position shift within safe viewport boundaries
             const xOffset = (Math.random() - 0.5) * 240;
             const yOffset = (Math.random() - 0.5) * 160;
 
-            // Apply smooth translation movement
             noBtn.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-
-            // Dynamically alter subtitle text to playful prompts
             const randomMsg = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
             subtitle.textContent = randomMsg;
 
-            // Switch mood emoji every few dodges
-            if (dodgeCount % 2 === 0) {
-                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-                emojiSpan.textContent = randomEmoji;
-            }
-
-            // Grow the YES button subtly to encourage clicking it
             const yesBtn = document.getElementById('yes-btn');
             const currentScale = 1 + Math.min(dodgeCount * 0.05, 0.4);
             yesBtn.style.transform = `scale(${currentScale})`;
         }
 
         function handleYesClick() {
-            // Hide main question card and show destination picker screen
             document.getElementById('card-container').classList.add('hidden');
-            document.getElementById('destination-screen').classList.remove('hidden');
+            document.getElementById('date-screen').classList.remove('hidden');
 
-            // Ensure background music starts playing on successful click if blocked earlier
             if (!isPlaying) {
                 bgAudio.play().then(() => {
                     document.getElementById('audio-icon').textContent = "🔊";
@@ -311,59 +313,21 @@
             }
         }
 
-        function confirmDateDetails() {
+        function goToPlaceSelection() {
             const selectedDate = document.getElementById('date-picker').value;
-            const selectedDestination = document.getElementById('destination-select').value;
-
-            // Update summary text
-            document.getElementById('final-summary').textContent = `Date: ${selectedDate} | Vibe: ${selectedDestination}. It's a date! 🥰`;
-
-            // Hide destination screen and show celebration screen with confetti
-            document.getElementById('destination-screen').classList.add('hidden');
-            document.getElementById('celebration-screen').classList.remove('hidden');
-
-            triggerConfetti();
+            if (!selectedDate) {
+                alert("Please pick a date first! 📅");
+                return;
+            }
+            document.getElementById('date-screen').classList.add('hidden');
+            document.getElementById('place-screen').classList.remove('hidden');
         }
 
-        function triggerConfetti() {
-            // Initial celebratory blast
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#ff4d88', '#ff75b5', '#ffd1dc', '#ffffff', '#e0b0ff']
-            });
-
-            // Delayed secondary bursts for continuous joy
-            setTimeout(() => {
-                confetti({
-                    particleCount: 80,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 }
-                });
-            }, 300);
-
-            setTimeout(() => {
-                confetti({
-                    particleCount: 80,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 }
-                });
-            }, 600);
+        function goBackToDate() {
+            document.getElementById('place-screen').classList.add('hidden');
+            document.getElementById('date-screen').classList.remove('hidden');
         }
 
-        function resetApp() {
-            dodgeCount = 0;
-            document.getElementById('no-btn').style.transform = 'translate(0px, 0px)';
-            document.getElementById('yes-btn').style.transform = 'scale(1)';
-            document.getElementById('subtitle-text').textContent = "I promise good food, terrible jokes, and great company! 🥰";
-            document.getElementById('mood-emoji').textContent = "🐱💕";
-            document.getElementById('celebration-screen').classList.add('hidden');
-            document.getElementById('destination-screen').classList.add('hidden');
-            document.getElementById('card-container').classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
+        function previewDestination() {
+            const selectedDate = document.getElementById('date-picker').value;
+            const selectedDestination = document.getElementById('d

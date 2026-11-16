@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Very Important Question 💖</title>
+    <title>A Love Letter For You 💖</title>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts for playful typography -->
@@ -43,9 +43,10 @@
         <div class="absolute inset-0 bg-gradient-to-br from-rose-950/80 via-pink-900/80 to-purple-950/80 backdrop-blur-[3px]"></div>
     </div>
 
-    <!-- Background Music Audio Element (Single Play - No Loop) -->
+    <!-- Background Music Audio Element (Single Play - Safe Audio Handle) -->
     <audio id="bg-audio" preload="auto">
-        <source src="Wilbert-Ross-Dulo-Ng-Pahina.mp3" type="audio/mpeg">
+        <source src="Wilbert Ross - Dulo Ng Pahina (Official Lyric Video).mp3" type="audio/mpeg">
+        <source src="mysong.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -72,32 +73,39 @@
     <div class="absolute bottom-16 left-20 text-3xl floating-heart opacity-70 select-none" style="animation-delay: 1.5s;">🥺</div>
     <div class="absolute bottom-10 right-10 text-4xl floating-heart opacity-70 select-none" style="animation-delay: 0.5s;">💘</div>
 
-    <!-- Main Card Container -->
-    <main id="card-container" class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 max-w-md w-full text-center relative z-10 transition-all duration-500">
+    <!-- Main Card Container (Page 1: Love Letter & Question) -->
+    <main id="card-container" class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 max-w-md w-full text-center relative z-15 transition-all duration-500">
         
-        <div class="mb-6">
+        <div class="mb-5">
             <div class="grid grid-cols-2 gap-3 max-w-xs mx-auto mb-4">
                 <div class="bg-white/20 p-2 rounded-2xl shadow-md border border-white/20 transform -rotate-3 hover:rotate-0 transition duration-300">
                     <img src="photo1.jpg" alt="Our Memory 1" class="w-full h-28 object-cover rounded-xl" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop'">
-                    <p class="text-[10px] text-pink-200 font-medium mt-1">Special Moment ✨</p>
+                    <p class="text-[10px] text-pink-200 font-medium mt-1">My Favorite Person ✨</p>
                 </div>
                 <div class="bg-white/20 p-2 rounded-2xl shadow-md border border-white/20 transform rotate-3 hover:rotate-0 transition duration-300">
                     <img src="photo2.jpg" alt="Our Memory 2" class="w-full h-28 object-cover rounded-xl" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=400&auto=format&fit=crop'">
-                    <p class="text-[10px] text-pink-200 font-medium mt-1">Can't Wait 🥰</p>
+                    <p class="text-[10px] text-pink-200 font-medium mt-1">Forever With You 🥰</p>
                 </div>
             </div>
-            <span class="bg-pink-500/30 text-pink-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-pink-400/30">Urgent Question</span>
+            <span class="bg-pink-500/30 text-pink-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-pink-400/30">A Letter From My Heart 💌</span>
         </div>
 
-        <h1 class="cursive-title text-3xl md:text-4xl text-pink-200 mb-3 drop-shadow">Will you go on a date with me?</h1>
-        <p id="subtitle-text" class="text-pink-100/80 text-sm md:text-base mb-8">I promise good food, terrible jokes, and great company! 🥰</p>
+        <!-- Romantic Letter Text Block -->
+        <div class="bg-black/20 p-4 rounded-2xl border border-pink-300/20 text-pink-100/90 text-xs leading-relaxed italic mb-5 text-left">
+            <p class="mb-2">My dearest,</p>
+            <p class="mb-2">From the moment you came into my life, everything became brighter, warmer, and more meaningful. You are my favorite thought in the morning and my peaceful dream at night.</p>
+            <p>I built this little space just to ask you something that would mean the absolute world to me...</p>
+        </div>
 
-        <div id="button-area" class="flex items-center justify-center gap-4 relative min-h-[90px]">
-            <button id="yes-btn" onclick="handleYesClick()" class="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-lg px-8 py-3 rounded-full shadow-lg transform hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer z-20">
-                Yes! 💖
+        <h1 class="cursive-title text-2xl md:text-3xl text-pink-200 mb-2 drop-shadow">Will you go on a date with me?</h1>
+        <p id="subtitle-text" class="text-pink-100/80 text-xs md:text-sm mb-6">I promise endless laughter, sweet conversations, and memories we will cherish forever. 🌹✨</p>
+
+        <div id="button-area" class="flex items-center justify-center gap-4 relative min-h-[80px]">
+            <button id="yes-btn" onclick="handleYesClick()" class="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-base px-7 py-2.5 rounded-full shadow-lg transform hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer z-20">
+                Yes, Always! 💖
             </button>
 
-            <button id="no-btn" onmouseover="teleportButton()" onclick="teleportButton()" ontouchstart="teleportButton()" class="bg-white/20 hover:bg-white/30 text-white font-bold text-lg px-8 py-3 rounded-full shadow-md cursor-pointer select-none border border-white/20">
+            <button id="no-btn" onmouseover="teleportButton()" onclick="teleportButton()" ontouchstart="teleportButton()" class="bg-white/20 hover:bg-white/30 text-white font-bold text-base px-7 py-2.5 rounded-full shadow-md cursor-pointer select-none border border-white/20">
                 No 🙈
             </button>
         </div>
@@ -107,16 +115,16 @@
     <main id="date-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
         <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
             <div class="text-6xl mb-3 animate-bounce">📅✨</div>
-            <h2 class="cursive-title text-3xl text-pink-200 mb-2">Yay! Best Decision Ever!</h2>
-            <p class="text-pink-100/80 text-sm mb-6">First, let's pick the exact date for our special day!</p>
+            <h2 class="cursive-title text-3xl text-pink-200 mb-2">My Heart is So Full!</h2>
+            <p class="text-pink-100/90 text-sm mb-6">When should our unforgettable day happen, my love?</p>
 
             <div class="mb-6 text-left">
-                <label class="block text-xs font-bold text-pink-300 uppercase mb-1">Pick a Date (This Year)</label>
+                <label class="block text-xs font-bold text-pink-300 uppercase mb-1">Pick Our Special Date</label>
                 <input type="date" id="date-picker" class="w-full bg-black/30 border border-pink-300/30 rounded-xl px-4 py-2.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-pink-400">
             </div>
 
             <button onclick="goToPlaceSelection()" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer">
-                Next: Choose Destination 🌴 ->
+                Next: Choose Our Romantic Destination 🌴 ->
             </button>
         </div>
     </main>
@@ -125,13 +133,13 @@
     <main id="place-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
         <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
             <div class="text-6xl mb-3 animate-bounce">🌴✨</div>
-            <h2 class="cursive-title text-3xl text-pink-200 mb-2">Where to?</h2>
-            <p class="text-pink-100/80 text-sm mb-6">Now choose our romantic destination!</p>
+            <h2 class="cursive-title text-3xl text-pink-200 mb-2">Where Our Story Continues</h2>
+            <p class="text-pink-100/90 text-sm mb-6">Choose the perfect scenery for our romantic date...</p>
 
             <div class="mb-6 text-left">
-                <label class="block text-xs font-bold text-pink-300 uppercase mb-1">Choose a Romantic Destination (Top 10)</label>
+                <label class="block text-xs font-bold text-pink-300 uppercase mb-1">Select Our Destination</label>
                 <select id="destination-select" class="w-full bg-black/30 border border-pink-300/30 rounded-xl px-4 py-2.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-pink-400">
-                    <option value="" class="bg-gray-900 text-gray-300">-- Select a Place --</option>
+                    <option value="" class="bg-gray-900 text-gray-300">-- Choose a Dreamy Place --</option>
                     <option value="Boracay Beach, Aklan" class="bg-gray-900 text-white">1. Boracay Beach, Aklan 🏖️</option>
                     <option value="El Nido, Palawan" class="bg-gray-900 text-white">2. El Nido, Palawan 🏝️</option>
                     <option value="Chocolate Hills, Bohol" class="bg-gray-900 text-white">3. Chocolate Hills, Bohol 🍫</option>
@@ -150,7 +158,7 @@
                     Back 🔙
                 </button>
                 <button onclick="previewDestination()" class="w-2/3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer text-sm">
-                    Preview Details 💖
+                    Preview Our Date 💖
                 </button>
             </div>
         </div>
@@ -161,14 +169,14 @@
         <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100 text-left">
             <div class="text-center mb-4">
                 <span class="text-5xl">💌✨</span>
-                <h2 class="cursive-title text-3xl text-pink-200 mt-2">Date Preview</h2>
+                <h2 class="cursive-title text-3xl text-pink-200 mt-2">Our Date Blueprint</h2>
             </div>
             
             <div class="bg-black/30 p-4 rounded-2xl border border-pink-300/20 space-y-3 mb-6 text-sm">
-                <p><strong>📅 Chosen Date:</strong> <span id="preview-date" class="text-pink-300"></span></p>
-                <p><strong>🌴 Destination:</strong> <span id="preview-dest" class="text-pink-300"></span></p>
+                <p><strong>📅 Our Date:</strong> <span id="preview-date" class="text-pink-300"></span></p>
+                <p><strong>🌴 Our Destination:</strong> <span id="preview-dest" class="text-pink-300"></span></p>
                 <div class="border-t border-pink-300/20 pt-2 mt-2">
-                    <p class="font-bold text-pink-200 mb-1">✨ What to Expect:</p>
+                    <p class="font-bold text-pink-200 mb-1">✨ What We Can Expect Together:</p>
                     <p id="preview-expectation" class="text-pink-100/90 text-xs italic leading-relaxed"></p>
                 </div>
             </div>
@@ -178,7 +186,7 @@
                     Change 🔙
                 </button>
                 <button onclick="confirmDateDetails()" class="w-2/3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer text-sm">
-                    Confirm & Lock In! 💍
+                    Seal It With Love! 💍
                 </button>
             </div>
         </div>
@@ -187,21 +195,21 @@
     <!-- Final Celebration Screen -->
     <div id="celebration-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
         <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
-            <div class="text-7xl mb-4 animate-bounce">🎉🥳🍾</div>
-            <h2 class="cursive-title text-4xl text-pink-200 mb-3">All Set!</h2>
-            <p id="final-summary" class="text-pink-100/90 text-sm mb-6 leading-relaxed">Can't wait to hang out with you! ✨</p>
+            <div class="text-7xl mb-4 animate-bounce">🎉💖🍾</div>
+            <h2 class="cursive-title text-4xl text-pink-200 mb-3">It's Official!</h2>
+            <p id="final-summary" class="text-pink-100/90 text-sm mb-6 leading-relaxed">I can't wait to create unforgettable memories with you! ✨</p>
             <div class="bg-pink-500/20 p-4 rounded-2xl border border-pink-300/30 text-pink-200 font-semibold text-sm mb-6">
-                Status: Date Confirmed! 📅💕
+                Status: Reserved in My Heart Forever! 📅💕
             </div>
             <button onclick="resetApp()" class="text-xs text-pink-300 hover:text-pink-200 underline cursor-pointer">
-                Start Over (Just for fun)
+                Relive This Moment (Start Over)
             </button>
         </div>
     </div>
 
     <!-- Footer Credit -->
-    <footer class="absolute bottom-3 text-xs text-pink-300/70 font-medium z-10">
-        Made with extra love & sweetness ✨
+    <footer class="mt-8 text-xs text-pink-300/70 font-medium z-10 text-center">
+        Made with all my heart and endless love ✨
     </footer>
 
     <!-- JavaScript Application Logic -->
@@ -211,27 +219,27 @@
         const bgAudio = document.getElementById('bg-audio');
 
         const funnyMessages = [
-            "Nice try! 😉",
-            "Oops, missed! 🤭",
-            "That button is broken! 🛠️",
-            "Try clicking Yes instead! 💖",
-            "Nope, not an option! 😌",
-            "Stop chasing me! 🏃💨",
-            "Resistance is futile! ✨",
-            "You only have one choice! 🌸"
+            "Are you sure, my love? 😉",
+            "That button is playing hard to get! 🤭",
+            "Nice try, but you're stuck with me! 💖",
+            "Try clicking Yes instead, sweetie! 🥰",
+            "Nope, the universe says Yes! 😌",
+            "You can't escape my love! 🏃💨",
+            "Resistance is futile, gorgeous! ✨",
+            "Only one right choice in my heart! 🌸"
         ];
 
         const placeExpectations = {
-            "Boracay Beach, Aklan": "Expect breathtaking powder-white sand, gorgeous sunset walks hand-in-hand along the shoreline, vibrant nightlife, and a wonderful tropical beach vibe!",
-            "El Nido, Palawan": "Expect stunning limestone cliffs, crystal-clear turquoise lagoons, secret hidden beaches, and unforgettable island-hopping boat adventures.",
-            "Chocolate Hills, Bohol": "Expect panoramic views of rolling symmetrical hills, cute encounters with tarsiers, a peaceful countryside vibe, and a relaxing river cruise date.",
-            "Siargao Island": "Expect a laid-back island atmosphere, stunning palm-fringed roads, beautiful rock pools, gorgeous surf views, and chill sunset sessions.",
-            "Batanes Islands": "Expect dramatic rolling green hills meeting the blue ocean, historic stone houses, cool breezy weather, and breathtaking cliffside scenery.",
-            "Vigan Heritage Village": "Expect romantic horse-drawn carriage (calesa) rides down cobblestone streets, old-world Spanish colonial architecture, and delicious local empanadas.",
-            "Tagaytay Ridge": "Expect cool mountain breeze, cozy coffee dates overlooking the majestic Taal Volcano lake, and romantic misty weather views.",
-            "Lake Sebu": "Expect a serene mountain escape with gorgeous waterfall views, peaceful lake waters, rich indigenous culture, and a cool morning mist.",
-            "Enchanted River, Surigao": "Expect magical crystal-clear blue river waters hidden in lush jungle greenery, swimming side-by-side, and peaceful nature ambiance.",
-            "Baguio Botanical Garden": "Expect romantic pine-scented cool weather, beautiful colorful flower gardens, artistic sculptures, and cozy walks hand-in-hand."
+            "Boracay Beach, Aklan": "Expect breathtaking powder-white sand, sharing quiet sunset whispers by the shoreline, and making sweet, timeless memories together hand-in-hand.",
+            "El Nido, Palawan": "Expect awe-inspiring turquoise waters, magical hidden lagoons, and an intimate island-hopping escape just for the two of us.",
+            "Chocolate Hills, Bohol": "Expect panoramic views of rolling hills, peaceful countryside tranquility, and sweet moments sharing laughter under the open sky.",
+            "Siargao Island": "Expect a warm island breeze, gorgeous palm trees, a relaxed serene atmosphere, and cozy sunset sessions watching the waves.",
+            "Batanes Islands": "Expect breathtaking rolling green hills, timeless stone houses, cool romantic weather, and peaceful cliffside views of the endless sea.",
+            "Vigan Heritage Village": "Expect romantic horse-drawn carriage rides down historic cobblestone streets, old-world charm, and sweet moments walking side-by-side.",
+            "Tagaytay Ridge": "Expect a cozy mountain breeze, warm coffee dates overlooking the misty lake view, and holding each other close in the cool weather.",
+            "Lake Sebu": "Expect a tranquil mountain sanctuary, stunning waterfall views, peaceful lake waters, and a serene getaway away from the busy world.",
+            "Enchanted River, Surigao": "Expect magical crystal-clear blue waters hidden in lush nature, quiet serenity, and an enchanting adventure together.",
+            "Baguio Botanical Garden": "Expect romantic pine-scented cool weather, vibrant blooming flowers, and sweet, quiet walks holding hands."
         };
 
         bgAudio.addEventListener('ended', () => {
@@ -247,7 +255,7 @@
                 document.getElementById('audio-icon').textContent = "🔊";
                 document.getElementById('audio-text').textContent = "Mute Music 🎶";
             }).catch(error => {
-                console.log("Audio playback error:", error);
+                console.log("Audio play error bypassed:", error);
             });
         }
 
@@ -316,7 +324,7 @@
         function goToPlaceSelection() {
             const selectedDate = document.getElementById('date-picker').value;
             if (!selectedDate) {
-                alert("Please pick a date first! 📅");
+                alert("Please pick a special date first, my love! 📅");
                 return;
             }
             document.getElementById('date-screen').classList.add('hidden');
@@ -333,13 +341,13 @@
             const selectedDestination = document.getElementById('destination-select').value;
 
             if (!selectedDestination) {
-                alert("Please select a romantic destination first! 🌴");
+                alert("Please select a dreamy destination first, sweetheart! 🌴");
                 return;
             }
 
             document.getElementById('preview-date').textContent = selectedDate;
             document.getElementById('preview-dest').textContent = selectedDestination;
-            document.getElementById('preview-expectation').textContent = placeExpectations[selectedDestination] || "Expect a wonderful time filled with amazing memories together! ✨";
+            document.getElementById('preview-expectation').textContent = placeExpectations[selectedDestination] || "Expect a wonderful time filled with endless love and magic together! ✨";
 
             document.getElementById('place-screen').classList.add('hidden');
             document.getElementById('preview-screen').classList.remove('hidden');
@@ -354,7 +362,7 @@
             const selectedDate = document.getElementById('date-picker').value;
             const selectedDestination = document.getElementById('destination-select').value;
 
-            document.getElementById('final-summary').innerHTML = `Date: <span class="text-pink-300 font-semibold">${selectedDate}</span><br>Destination: <span class="text-pink-300 font-semibold">${selectedDestination}</span><br><br>It's a date! Can't wait to share this magical experience with you! 🥰`;
+            document.getElementById('final-summary').innerHTML = `Date: <span class="text-pink-300 font-semibold">${selectedDate}</span><br>Destination: <span class="text-pink-300 font-semibold">${selectedDestination}</span><br><br>It's a date! I love you so much and I can't wait to share this magical day with you! 🥰`;
 
             document.getElementById('preview-screen').classList.add('hidden');
             document.getElementById('celebration-screen').classList.remove('hidden');
@@ -364,8 +372,8 @@
 
         function triggerConfetti() {
             confetti({
-                particleCount: 120,
-                spread: 80,
+                particleCount: 150,
+                spread: 90,
                 origin: { y: 0.6 }
             });
         }
@@ -379,7 +387,7 @@
             const noBtn = document.getElementById('no-btn');
             yesBtn.style.transform = 'scale(1)';
             noBtn.style.transform = 'translate(0px, 0px)';
-            document.getElementById('subtitle-text').textContent = "I promise good food, terrible jokes, and great company! 🥰";
+            document.getElementById('subtitle-text').textContent = "I promise endless laughter, sweet conversations, and memories we will cherish forever. 🌹✨";
         }
     </script>
 </body>

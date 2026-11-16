@@ -43,36 +43,13 @@
         <div class="absolute inset-0 bg-gradient-to-br from-rose-950/80 via-pink-900/80 to-purple-950/80 backdrop-blur-[3px]"></div>
     </div>
 
-    <!-- Background Music Audio Element (Single Play - No Loop) -->
-    <audio id="bg-audio" preload="auto">
-        <source src="Wilbert Ross - Dulo Ng Pahina (Official Lyric Video).mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <!-- Audio Permission Modal Prompt -->
-    <div id="audio-modal" class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4">
-        <div class="bg-white text-gray-800 rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl border border-pink-300 animate-bounce">
-            <div class="text-5xl mb-3">🎵💖</div>
-            <h3 class="cursive-title text-2xl text-pink-600 mb-2">Enable Music?</h3>
-            <p class="text-gray-600 text-sm mb-5">Click below to start the romantic background music and open your invitation!</p>
-            <button onclick="startExperience()" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer">
-                Let's Go! ✨
-            </button>
-        </div>
-    </div>
-
-    <!-- Floating Audio Toggle Button -->
-    <button id="audio-toggle" onclick="toggleAudio()" class="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white font-bold px-4 py-2 rounded-full shadow-md backdrop-blur-md border border-white/30 transition-all z-30 flex items-center gap-2 text-sm cursor-pointer">
-        <span id="audio-icon">🔇</span> <span id="audio-text">Play Music 🎵</span>
-    </button>
-
     <!-- Floating Background Decor Elements -->
     <div class="absolute top-10 left-10 text-4xl floating-heart opacity-70 select-none">💖</div>
     <div class="absolute top-20 right-16 text-3xl floating-heart opacity-70 select-none" style="animation-delay: 1s;">✨</div>
     <div class="absolute bottom-16 left-20 text-3xl floating-heart opacity-70 select-none" style="animation-delay: 1.5s;">🥺</div>
     <div class="absolute bottom-10 right-10 text-4xl floating-heart opacity-70 select-none" style="animation-delay: 0.5s;">💘</div>
 
-    <!-- Main Card Container -->
+    <!-- Main Card Container (Page 1) -->
     <main id="card-container" class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 max-w-md w-full text-center relative z-10 transition-all duration-500">
         
         <div class="mb-6">
@@ -207,8 +184,6 @@
     <!-- JavaScript Application Logic -->
     <script>
         let dodgeCount = 0;
-        let isPlaying = false;
-        const bgAudio = document.getElementById('bg-audio');
 
         const funnyMessages = [
             "Nice try! 😉",
@@ -233,43 +208,6 @@
             "Enchanted River, Surigao": "Expect magical crystal-clear blue river waters hidden in lush jungle greenery, swimming side-by-side, and peaceful nature ambiance.",
             "Baguio Botanical Garden": "Expect romantic pine-scented cool weather, beautiful colorful flower gardens, artistic sculptures, and cozy walks hand-in-hand."
         };
-
-        bgAudio.addEventListener('ended', () => {
-            isPlaying = false;
-            document.getElementById('audio-icon').textContent = "🔇";
-            document.getElementById('audio-text').textContent = "Play Music 🎵";
-        });
-
-        function startExperience() {
-            document.getElementById('audio-modal').classList.add('hidden');
-            bgAudio.play().then(() => {
-                isPlaying = true;
-                document.getElementById('audio-icon').textContent = "🔊";
-                document.getElementById('audio-text').textContent = "Mute Music 🎶";
-            }).catch(error => {
-                console.log("Audio playback error:", error);
-            });
-        }
-
-        function toggleAudio() {
-            const icon = document.getElementById('audio-icon');
-            const text = document.getElementById('audio-text');
-
-            if (isPlaying) {
-                bgAudio.pause();
-                icon.textContent = "🔇";
-                text.textContent = "Play Music 🎵";
-                isPlaying = false;
-            } else {
-                bgAudio.play().then(() => {
-                    icon.textContent = "🔊";
-                    text.textContent = "Mute Music 🎶";
-                    isPlaying = true;
-                }).catch(err => {
-                    console.log("Play failed:", err);
-                });
-            }
-        }
 
         window.addEventListener('DOMContentLoaded', () => {
             const today = new Date();
@@ -303,14 +241,6 @@
         function handleYesClick() {
             document.getElementById('card-container').classList.add('hidden');
             document.getElementById('date-screen').classList.remove('hidden');
-
-            if (!isPlaying) {
-                bgAudio.play().then(() => {
-                    document.getElementById('audio-icon').textContent = "🔊";
-                    document.getElementById('audio-text').textContent = "Mute Music 🎶";
-                    isPlaying = true;
-                }).catch(e => console.log(e));
-            }
         }
 
         function goToPlaceSelection() {
@@ -330,4 +260,57 @@
 
         function previewDestination() {
             const selectedDate = document.getElementById('date-picker').value;
-            const selectedDestination = document.getElementById('d
+            const selectedDestination = document.getElementById('destination-select').value;
+
+            if (!selectedDestination) {
+                alert("Please select a romantic destination first! 🌴");
+                return;
+            }
+
+            document.getElementById('preview-date').textContent = selectedDate;
+            document.getElementById('preview-dest').textContent = selectedDestination;
+            document.getElementById('preview-expectation').textContent = placeExpectations[selectedDestination] || "Expect a wonderful time filled with amazing memories together! ✨";
+
+            document.getElementById('place-screen').classList.add('hidden');
+            document.getElementById('preview-screen').classList.remove('hidden');
+        }
+
+        function goBackToPlace() {
+            document.getElementById('preview-screen').classList.add('hidden');
+            document.getElementById('place-screen').classList.remove('hidden');
+        }
+
+        function confirmDateDetails() {
+            const selectedDate = document.getElementById('date-picker').value;
+            const selectedDestination = document.getElementById('destination-select').value;
+
+            document.getElementById('final-summary').innerHTML = `Date: <span class="text-pink-300 font-semibold">${selectedDate}</span><br>Destination: <span class="text-pink-300 font-semibold">${selectedDestination}</span><br><br>It's a date! Can't wait to share this magical experience with you! 🥰`;
+
+            document.getElementById('preview-screen').classList.add('hidden');
+            document.getElementById('celebration-screen').classList.remove('hidden');
+
+            triggerConfetti();
+        }
+
+        function triggerConfetti() {
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function resetApp() {
+            dodgeCount = 0;
+            document.getElementById('celebration-screen').classList.add('hidden');
+            document.getElementById('card-container').classList.remove('hidden');
+            
+            const yesBtn = document.getElementById('yes-btn');
+            const noBtn = document.getElementById('no-btn');
+            yesBtn.style.transform = 'scale(1)';
+            noBtn.style.transform = 'translate(0px, 0px)';
+            document.getElementById('subtitle-text').textContent = "I promise good food, terrible jokes, and great company! 🥰";
+        }
+    </script>
+</body>
+    </html>

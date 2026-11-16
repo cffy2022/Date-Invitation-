@@ -43,7 +43,7 @@
         <div class="absolute inset-0 bg-gradient-to-br from-rose-950/80 via-pink-900/80 to-purple-950/80 backdrop-blur-[3px]"></div>
     </div>
 
-    <!-- Background Music Audio Element (Updated to mysong.mp3 to prevent errors) -->
+    <!-- Background Music Audio Element (Single Play - No Loop) -->
     <audio id="bg-audio" preload="auto">
         <source src="Wilbert Ross - Dulo Ng Pahina (Official Lyric Video).mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -241,15 +241,13 @@
         });
 
         function startExperience() {
-            // Itinatago agad ang modal kahit magka-issue sa audio para hindi ma-stuck
             document.getElementById('audio-modal').classList.add('hidden');
-            
             bgAudio.play().then(() => {
                 isPlaying = true;
                 document.getElementById('audio-icon').textContent = "🔊";
                 document.getElementById('audio-text').textContent = "Mute Music 🎶";
             }).catch(error => {
-                console.log("Audio play error bypassed:", error);
+                console.log("Audio playback error:", error);
             });
         }
 
@@ -307,7 +305,11 @@
             document.getElementById('date-screen').classList.remove('hidden');
 
             if (!isPlaying) {
-                bgAudio.play().catch(e => console.log(e));
+                bgAudio.play().then(() => {
+                    document.getElementById('audio-icon').textContent = "🔊";
+                    document.getElementById('audio-text').textContent = "Mute Music 🎶";
+                    isPlaying = true;
+                }).catch(e => console.log(e));
             }
         }
 
@@ -382,5 +384,3 @@
     </script>
 </body>
 </html>
-                
-    

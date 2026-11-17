@@ -464,6 +464,14 @@
             yesBtn.style.transform = 'scale(1)';
             noBtn.style.transform = 'translate(0px, 0px)';
             document.getElementById('subtitle-text').textContent = "I promise endless laughter, sweet conversations, and memories we will cherish forever. 🌹✨";
+
+            // Muling i-play ang musika mula sa simula at i-update ang audio button icon
+            bgAudio.currentTime = 0;
+            bgAudio.play().then(() => {
+                isPlaying = true;
+                document.getElementById('audio-icon').textContent = "🔊";
+                document.getElementById('audio-text').textContent = "Mute Music 🎶";
+            }).catch(e => console.log("Auto-play blocked on reset:", e));
         }
     </script>
 </body>

@@ -263,6 +263,10 @@
 
     </div>
 </div>
+    <!-- FX Sound Audio Element -->
+<audio id="fx-audio" preload="auto">
+    <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
+</audio>
 
     <!-- Footer Credit -->
     <footer class="mt-8 text-xs text-pink-300/70 font-medium z-10 text-center">
@@ -456,7 +460,14 @@
             }
         }
 
-        function goToThankYou() {
+                function goToThankYou() {
+            // Patugtugin ang FX sound effect
+            const fxAudio = document.getElementById('fx-audio');
+            if (fxAudio) {
+                fxAudio.currentTime = 0;
+                fxAudio.play().catch(e => console.log("FX play error:", e));
+            }
+
             bgAudio.pause();
             bgAudio.currentTime = 0;
             isPlaying = false;
@@ -466,6 +477,7 @@
             document.getElementById('celebration-screen').classList.add('hidden');
             document.getElementById('thankyou-screen').classList.remove('hidden');
         }
+
 
         function triggerConfetti() {
             confetti({

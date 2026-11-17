@@ -327,15 +327,14 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            const today = new Date();
-            const year = 2029();
-            const minDate = today.toISOString().split('T')[0];
-            const maxDate = `${year}-12-31`;
+            const year = 2027; // Naka-lock na ngayon sa taong 2027
+            const minDate = `${year}-01-01`; // Magsisimula ng January 1, 2027
+            const maxDate = `${year}-12-31`; // Hanggang December 31, 2027
             
             const datePicker = document.getElementById('date-picker');
             datePicker.min = minDate;
             datePicker.max = maxDate;
-            datePicker.value = minDate;
+            datePicker.value = minDate; // Awtomatikong magpapakita ng Jan 1, 2027 bilang default
         });
 
         function teleportButton() {

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Letter For You, My Love ❤️</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for playful typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Confetti library for the celebration effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #4c0519 0%, #831843 50%, #581c87 100%);
+            overflow-x: hidden;
+        }
+        .cursive-title {
+            font-family: 'Pacifico', cursive;
+        }
+        .floating-heart {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        #no-btn {
+            transition: all 0.15s ease-out;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4 relative text-gray-100">
+
+    <!-- Romantic Background Video Layer -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-20">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-romantic-sunset-with-silhouettes-of-people-in-the-distance-42353-large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-br from-rose-950/80 via-pink-900/80 to-purple-950/80 backdrop-blur-[3px]"></div>
+    </div>
+
+    <!-- Background Music Audio Element -->
+    <audio id="bg-audio" preload="auto">
+        <source src="Wilbert-Ross-Dulo-Ng-Pahina.mp3" type="audio/mpeg">
+        <source src="mysong.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating Audio Toggle Button -->
+    <button id="audio-toggle" onclick="toggleAudio()" class="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white font-bold px-4 py-2 rounded-full shadow-md backdrop-blur-md border border-white/30 transition-all z-30 flex items-center gap-2 text-sm cursor-pointer">
+        <span id="audio-icon">🔇</span> <span id="audio-text">Play Music 🎵</span>
+    </button>
+
+    <!-- Floating Background Decor Elements -->
+    <div class="absolute top-10 left-10 text-4xl floating-heart opacity-70 select-none">💖</div>
+    <div class="absolute top-20 right-16 text-3xl floating-heart opacity-70 select-none" style="animation-delay: 1s;">✨</div>
+    <div class="absolute bottom-16 left-20 text-3xl floating-heart opacity-70 select-none" style="animation-delay: 1.5s;">🥺</div>
+    <div class="absolute bottom-10 right-10 text-4xl floating-heart opacity-70 select-none" style="animation-delay: 0.5s;">💘</div>
+
+    <!-- Page 0: Interactive Envelope Screen (Tap to Open) -->
+    <div id="envelope-screen" class="text-center max-w-sm w-full z-20 transition-all duration-500">
+        <div onclick="openEnvelope()" class="bg-white/10 backdrop-blur-xl border border-pink-300/40 shadow-2xl rounded-3xl p-8 cursor-pointer transform hover:scale-105 transition-all duration-300 relative overflow-hidden group">
+            <div class="absolute -right-10 -top-10 w-32 h-32 bg-pink-500/20 rounded-full blur-2xl group-hover:bg-pink-500/40 transition-all"></div>
+            
+            <div class="relative w-36 h-28 mx-auto bg-gradient-to-br from-rose-200 to-pink-300 rounded-2xl shadow-inner flex items-center justify-center border border-white/50 mb-6">
+                <div class="absolute inset-x-0 top-0 h-14 border-b-2 border-rose-400/50 transform rotate-0 origin-bottom" style="clip-path: polygon(0 0, 50% 100%, 100% 0);"></div>
+                <div class="absolute z-10 text-5xl transform group-hover:scale-125 transition-transform drop-shadow-md animate-pulse">
+                    ❤️
+                </div>
+            </div>
+
+            <h1 class="cursive-title text-2xl text-pink-200 mb-2 drop-shadow">A letter for you, my love ❤️</h1>
+            <p class="text-pink-100/80 text-xs tracking-wider uppercase font-bold animate-pulse">Tap to open envelope ✨</p>
+        </div>
+    </div>
+
+    <!-- Main Card Container (Page 1: Love Letter & Question) -->
+    <main id="card-container" class="hidden bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 max-w-md w-full text-center relative z-15 transition-all duration-500 animate-fade-in">
+        
+        <div class="mb-5">
+            <div class="grid grid-cols-2 gap-3 max-w-xs mx-auto mb-4">
+                <div class="bg-white/20 p-2 rounded-2xl shadow-md border border-white/20 transform -rotate-3 hover:rotate-0 transition duration-300">
+                    <img src="photo1.jpg" alt="Our Memory 1" class="w-full h-28 object-cover rounded-xl" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop'">
+                    <p class="text-[10px] text-pink-200 font-medium mt-1">My Favorite Person ✨</p>
+                </div>
+                <div class="bg-white/20 p-2 rounded-2xl shadow-md border border-white/20 transform rotate-3 hover:rotate-0 transition duration-300">
+                    <img src="photo2.jpg" alt="Our Memory 2" class="w-full h-28 object-cover rounded-xl" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=400&auto=format&fit=crop'">
+                    <p class="text-[10px] text-pink-200 font-medium mt-1">Forever With You 🥰</p>
+                </div>
+            </div>
+            <span class="bg-pink-500/30 text-pink-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-pink-400/30">A Letter From My Heart 💌</span>
+        </div>
+
+        <div class="bg-black/20 p-4 rounded-2xl border border-pink-300/20 text-pink-100/90 text-xs leading-relaxed italic mb-5 text-left">
+            <p class="mb-2">My dearest,</p>
+            <p class="mb-2">From the moment you came into my life, everything became brighter, warmer, and more meaningful. You are my favorite thought in the morning and my peaceful dream at night.</p>
+            <p>I built this little space just to ask you something that would mean the absolute world to me...</p>
+        </div>
+
+        <h2 class="cursive-title text-2xl md:text-3xl text-pink-200 mb-2 drop-shadow">Will you go on a date with me?</h2>
+        <p id="subtitle-text" class="text-pink-100/80 text-xs md:text-sm mb-6">I promise endless laughter, sweet conversations, and memories we will cherish forever. 🌹✨</p>
+
+        <div id="button-area" class="flex items-center justify-center gap-4 relative min-h-[80px]">
+            <button id="yes-btn" onclick="handleYesClick()" class="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-base px-7 py-2.5 rounded-full shadow-lg transform hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer z-20">
+                Yes, Always! 💖
+            </button>
+
+            <button id="no-btn" onmouseover="teleportButton()" onclick="teleportButton()" ontouchstart="teleportButton()" class="bg-white/20 hover:bg-white/30 text-white font-bold text-base px-7 py-2.5 rounded-full shadow-md cursor-pointer select-none border border-white/20">
+                No 🙈
+            </button>
+        </div>
+    </main>
+
+    <!-- Page 2: Date Selection Screen -->
+    <main id="date-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
+        <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
+            <div class="text-6xl mb-3 animate-bounce">📅✨</div>
+            <h2 class="cursive-title text-3xl text-pink-200 mb-2">My Heart is So Full!</h2>
+            <p class="text-pink-100/90 text-sm mb-6">When should our unforgettable day happen, my love?</p>
+
+            <div class="mb-6 text-left">
+                <label class="block text-xs font-bold text-pink-300 uppercase mb-1">Pick Our Special Date</label>
+                <input type="date" id="date-picker" class="w-full bg-black/30 border border-pink-300/30 rounded-xl px-4 py-2.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-pink-400">
+            </div>
+
+            <button onclick="goToPlaceSelection()" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer">
+                Next: Choose Our Romantic Destination 🌴 ->
+            </button>
+        </div>
+    </main>
+
+    <!-- Page 3: Place Selection Screen -->
+    <main id="place-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
+        <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
+            <div class="text-6xl mb-3 animate-bounce">🌴✨</div>
+            <h2 class="cursive-title text-3xl text-pink-200 mb-2">Where Our Story Continues</h2>
+            <p class="text-pink-100/90 text-sm mb-6">Choose the perfect scenery for our romantic date...</p>
+
+            <div class="mb-6 text-left">
+                <label class="block text-xs font-bold text-pink-300 uppercase mb-1">Select Our Destination</label>
+                <select id="destination-select" class="w-full bg-black/30 border border-pink-300/30 rounded-xl px-4 py-2.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    <option value="" class="bg-gray-900 text-gray-300">-- Choose a Dreamy Place --</option>
+                    <option value="Boracay Beach, Aklan" class="bg-gray-900 text-white">1. Boracay Beach, Aklan 🏖️</option>
+                    <option value="El Nido, Palawan" class="bg-gray-900 text-white">2. El Nido, Palawan 🏝️</option>
+                    <option value="Chocolate Hills, Bohol" class="bg-gray-900 text-white">3. Chocolate Hills, Bohol 🍫</option>
+                    <option value="Siargao Island" class="bg-gray-900 text-white">4. Siargao Island, Surigao 🏄</option>
+                    <option value="Batanes Islands" class="bg-gray-900 text-white">5. Batanes Islands ⛰️</option>
+                    <option value="Vigan Heritage Village" class="bg-gray-900 text-white">6. Vigan Heritage Village, Ilocos Sur 🐎</option>
+                    <option value="Tagaytay Ridge" class="bg-gray-900 text-white">7. Tagaytay Ridge, Cavite ☕</option>
+                    <option value="Lake Sebu" class="bg-gray-900 text-white">8. Lake Sebu, South Cotabato 🌊</option>
+                    <option value="Enchanted River, Surigao" class="bg-gray-900 text-white">9. Enchanted River, Surigao del Sur 💧</option>
+                    <option value="Baguio Botanical Garden" class="bg-gray-900 text-white">10. Baguio Botanical Garden 🌲</option>
+                </select>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="goBackToDate()" class="w-1/3 bg-white/20 hover:bg-white/30 text-white font-bold py-3 rounded-full shadow-md transition-all cursor-pointer text-xs">
+                    Back 🔙
+                </button>
+                <button onclick="previewDestination()" class="w-2/3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer text-sm">
+                    Preview Our Date 💖
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Page 4: Preview & Confirmation Screen -->
+    <div id="preview-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
+        <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100 text-left">
+            <div class="text-center mb-4">
+                <span class="text-5xl">💌✨</span>
+                <h2 class="cursive-title text-3xl text-pink-200 mt-2">Our Date Blueprint</h2>
+            </div>
+            
+            <div class="bg-black/30 p-4 rounded-2xl border border-pink-300/20 space-y-3 mb-6 text-sm">
+                <p><strong>📅 Our Date:</strong> <span id="preview-date" class="text-pink-300"></span></p>
+                <p><strong>🌴 Our Destination:</strong> <span id="preview-dest" class="text-pink-300"></span></p>
+                <div class="border-t border-pink-300/20 pt-2 mt-2">
+                    <p class="font-bold text-pink-200 mb-1">✨ What We Can Expect Together:</p>
+                    <p id="preview-expectation" class="text-pink-100/90 text-xs italic leading-relaxed"></p>
+                </div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="goBackToPlace()" class="w-1/3 bg-white/20 hover:bg-white/30 text-white font-bold py-3 rounded-full shadow-md transition-all cursor-pointer text-xs">
+                    Change 🔙
+                </button>
+                <button onclick="confirmDateDetails()" class="w-2/3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer text-sm">
+                    Confirm & Lock In! 💍
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Celebration Screen -->
+    <div id="celebration-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
+        <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
+            <div class="text-7xl mb-4 animate-bounce">🎉💖🍾</div>
+            <h2 class="cursive-title text-4xl text-pink-200 mb-3">It's Official!</h2>
+            <p id="final-summary" class="text-pink-100/90 text-sm mb-6 leading-relaxed">I can't wait to create unforgettable memories with you! ✨</p>
+            
+            <div class="bg-pink-500/20 p-4 rounded-2xl border border-pink-300/30 text-pink-200 font-semibold text-sm mb-4">
+                Status: Reserved in My Heart Forever! 📅💕
+            </div>
+           
+            <button onclick="goToThankYou()" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 rounded-full shadow-lg transition-all cursor-pointer">
+                Continue to Final Message ✨
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 5: Final Thank You & Exit Screen (Stops Music) -->
+    <div id="thankyou-screen" class="hidden text-center max-w-md w-full z-20 animate-fade-in">
+        <div class="bg-white/10 backdrop-blur-xl border border-pink-300/30 shadow-2xl rounded-3xl p-8 relative overflow-hidden text-gray-100">
+            <div class="text-6xl mb-3 animate-bounce">💌🌹</div>
+            <h2 class="cursive-title text-3xl text-pink-200 mb-3">Thank You, My Love</h2>
+            <p class="text-pink-100/90 text-sm mb-6 leading-relaxed italic">
+                "Thank you for saying yes and for making me the happiest person in the world. I cherish every single beat of my heart because it belongs to you. See you on our special day! 💖"
+            </p>
+            <div class="bg-pink-500/20 p-4 rounded-2xl border border-pink-300/30 text-pink-200 font-semibold text-sm mb-6">
+                Forever Yours, Always & Forever ✨
+            </div>        
+              <!-- Share Button -->
+            <button onclick="shareDetails()" class="w-full bg-white/20 hover:bg-white/30 text-white font-bold py-2.5 rounded-full shadow-md transition-all cursor-pointer text-sm mb-3 border border-white/20">
+                📤 Share Our Date Details
+            </button>
+            <button onclick="resetApp()" class="text-xs text-pink-300 hover:text-pink-200 underline cursor-pointer">
+                Return from the Start
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer Credit -->
+    <footer class="mt-8 text-xs text-pink-300/70 font-medium z-10 text-center">
+        Made with all my heart and endless love ✨
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        let dodgeCount = 0;
+        let isPlaying = false;
+        const bgAudio = document.getElementById('bg-audio');
+
+        const funnyMessages = [
+            "Are you sure, my love? 😉",
+            "That button is playing hard to get! 🤭",
+            "Nice try, but you're stuck with me! 💖",
+            "Try clicking Yes instead, sweetie! 🥰",
+            "Nope, the universe says Yes! 😌",
+            "You can't escape my love! 🏃💨",
+            "Resistance is futile, gorgeous! ✨",
+            "Only one right choice in my heart! 🌸"
+        ];
+
+        const placeExpectations = {
+            "Boracay Beach, Aklan": "Expect breathtaking powder-white sand, sharing quiet sunset whispers by the shoreline, and making sweet, timeless memories together hand-in-hand.",
+            "El Nido, Palawan": "Expect awe-inspiring turquoise waters, magical hidden lagoons, and an intimate island-hopping escape just for the two of us.",
+            "Chocolate Hills, Bohol": "Expect panoramic views of rolling hills, peaceful countryside tranquility, and sweet moments sharing laughter under the open sky.",
+            "Siargao Island": "Expect a warm island breeze, gorgeous palm trees, a relaxed serene atmosphere, and cozy sunset sessions watching the waves.",
+            "Batanes Islands": "Expect breathtaking rolling green hills, timeless stone houses, cool romantic weather, and peaceful cliffside views of the endless sea.",
+            "Vigan Heritage Village": "Expect romantic horse-drawn carriage rides down historic cobblestone streets, old-world charm, and sweet moments walking side-by-side.",
+            "Tagaytay Ridge": "Expect a cozy mountain breeze, warm coffee dates overlooking the misty lake view, and holding each other close in the cool weather.",
+            "Lake Sebu": "Expect a tranquil mountain sanctuary, stunning waterfall views, peaceful lake waters, and a serene getaway away from the busy world.",
+            "Enchanted River, Surigao": "Expect magical crystal-clear blue waters hidden in lush nature, quiet serenity, and an enchanting adventure together.",
+            "Baguio Botanical Garden": "Expect romantic pine-scented cool weather, vibrant blooming flowers, and sweet, quiet walks holding hands."
+        };
+
+        bgAudio.addEventListener('ended', () => {
+            isPlaying = false;
+            document.getElementById('audio-icon').textContent = "🔇";
+            document.getElementById('audio-text').textContent = "Play Music 🎵";
+        });
+
+        function startExperience() {
+            document.getElementById('audio-modal').classList.add('hidden');
+            bgAudio.play().then(() => {
+                isPlaying = true;
+                document.getElementById('audio-icon').textContent = "🔊";
+                document.getElementById('audio-text').textContent = "Mute Music 🎶";
+            }).catch(error => {
+                console.log("Audio play error bypassed:", error);
+            });
+        }
+
+        function openEnvelope() {
+            document.getElementById('envelope-screen').classList.add('hidden');
+            document.getElementById('card-container').classList.remove('hidden');
+
+            if (!isPlaying) {
+                bgAudio.play().then(() => {
+                    document.getElementById('audio-icon').textContent = "🔊";
+                    document.getElementById('audio-text').textContent = "Mute Music 🎶";
+                    isPlaying = true;
+                }).catch(e => console.log(e));
+            }
+        }
+
+        function toggleAudio() {
+            const icon = document.getElementById('audio-icon');
+            const text = document.getElementById('audio-text');
+
+            if (isPlaying) {
+                bgAudio.pause();
+                icon.textContent = "🔇";
+                text.textContent = "Play Music 🎵";
+                isPlaying = false;
+            } else {
+                bgAudio.play().then(() => {
+                    icon.textContent = "🔊";
+                    text.textContent = "Mute Music 🎶";
+                    isPlaying = true;
+                }).catch(err => {
+                    console.log("Play failed:", err);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const today = new Date();
+            const year = today.getFullYear();
+            const minDate = today.toISOString().split('T')[0];
+            const maxDate = `${year}-12-31`;
+            
+            const datePicker = document.getElementById('date-picker');
+            datePicker.min = minDate;
+            datePicker.max = maxDate;
+            datePicker.value = minDate;
+        });
+
+        function teleportButton() {
+            const noBtn = document.getElementById('no-btn');
+            const subtitle = document.getElementById('subtitle-text');
+            
+            dodgeCount++;
+            const xOffset = (Math.random() - 0.5) * 240;
+            const yOffset = (Math.random() - 0.5) * 160;
+
+            noBtn.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            const randomMsg = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+            subtitle.textContent = randomMsg;
+
+            const yesBtn = document.getElementById('yes-btn');
+            const currentScale = 1 + Math.min(dodgeCount * 0.05, 0.4);
+            yesBtn.style.transform = `scale(${currentScale})`;
+        }
+
+        function handleYesClick() {
+            document.getElementById('card-container').classList.add('hidden');
+            document.getElementById('date-screen').classList.remove('hidden');
+
+            if (!isPlaying) {
+                bgAudio.play().then(() => {
+                    document.getElementById('audio-icon').textContent = "🔊";
+                    document.getElementById('audio-text').textContent = "Mute Music 🎶";
+                    isPlaying = true;
+                }).catch(e => console.log(e));
+            }
+        }
+
+        function goToPlaceSelection() {
+            const selectedDate = document.getElementById('date-picker').value;
+            if (!selectedDate) {
+                alert("Please pick a special date first, my love! 📅");
+                return;
+            }
+            document.getElementById('date-screen').classList.add('hidden');
+            document.getElementById('place-screen').classList.remove('hidden');
+        }
+
+        function goBackToDate() {
+            document.getElementById('place-screen').classList.add('hidden');
+            document.getElementById('date-screen').classList.remove('hidden');
+        }
+
+        function previewDestination() {
+            const selectedDate = document.getElementById('date-picker').value;
+            const selectedDestination = document.getElementById('destination-select').value;
+
+            if (!selectedDestination) {
+                alert("Please select a dreamy destination first, sweetheart! 🌴");
+                return;
+            }
+
+            document.getElementById('preview-date').textContent = selectedDate;
+            document.getElementById('preview-dest').textContent = selectedDestination;
+            document.getElementById('preview-expectation').textContent = placeExpectations[selectedDestination] || "Expect a wonderful time filled with endless love and magic together! ✨";
+
+            document.getElementById('place-screen').classList.add('hidden');
+            document.getElementById('preview-screen').classList.remove('hidden');
+        }
+
+        function goBackToPlace() {
+            document.getElementById('preview-screen').classList.add('hidden');
+            document.getElementById('place-screen').classList.remove('hidden');
+        }
+
+        function confirmDateDetails() {
+            const selectedDate = document.getElementById('date-picker').value;
+            const selectedDestination = document.getElementById('destination-select').value;
+
+            document.getElementById('final-summary').innerHTML = `Date: <span class="text-pink-300 font-semibold">${selectedDate}</span><br>Destination: <span class="text-pink-300 font-semibold">${selectedDestination}</span><br><br>It's a date! I love you so much and I can't wait to share this magical day with you! 🥰`;
+
+            document.getElementById('preview-screen').classList.add('hidden');
+            document.getElementById('celebration-screen').classList.remove('hidden');
+
+            triggerConfetti();
+        }
+
+        function shareDetails() {
+            const selectedDate = document.getElementById('date-picker').value;
+            const selectedDestination = document.getElementById('destination-select').value;
+            const shareText = `💖 It's a Date!\n📅 Date: ${selectedDate}\n🌴 Destination: ${selectedDestination}\n✨ See you there, my love!`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Our Date Details',
+                    text: shareText,
+                }).catch((error) => console.log('Sharing failed', error));
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert("Date details copied to clipboard! Pwede mo nang i-paste at isend sa akin! 💌");
+                });
+            }
+        }
+
+        function goToThankYou() {
+            bgAudio.pause();
+            bgAudio.currentTime = 0;
+            isPlaying = false;
+            document.getElementById('audio-icon').textContent = "🔇";
+            document.getElementById('audio-text').textContent = "Play Music 🎵";
+
+            document.getElementById('celebration-screen').classList.add('hidden');
+            document.getElementById('thankyou-screen').classList.remove('hidden');
+        }
+
+        function triggerConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 90,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function resetApp() {
+            dodgeCount = 0;
+            document.getElementById('thankyou-screen').classList.add('hidden');
+            document.getElementById('celebration-screen').classList.add('hidden');
+            document.getElementById('envelope-screen').classList.remove('hidden');
+            
+            const yesBtn = document.getElementById('yes-btn');
+            const noBtn = document.getElementById('no-btn');
+            yesBtn.style.transform = 'scale(1)';
+            noBtn.style.transform = 'translate(0px, 0px)';
+            document.getElementById('subtitle-text').textContent = "I promise endless laughter, sweet conversations, and memories we will cherish forever. 🌹✨";
+        }
+    </script>
+</body>
+</html>
